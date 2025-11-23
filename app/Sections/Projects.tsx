@@ -4,19 +4,34 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import projetoFigaro from '../assets/projetoFigaro.png';
 import miaBeautyStudio from '../assets/miaBeautyStudio.png';
+import extremeacademia from '../assets/extremeacademia.png';
+import catalagoVirtual from '../assets/catalagoVirtual.png';
+import { Expand, ExternalLink } from 'lucide-react';
 
 const projetos = [
     {
-        title: 'Barbearia',
-        description: 'Site institucional com localização das unidades e integração com aplicativo de agendamento.',
-        image: projetoFigaro,
-        link: 'https://www.barbeariafigaromarcal.com/',
+      title: 'Barbearia',
+      description: 'Site institucional com localização das unidades e integração com aplicativo de agendamento.',
+      image: projetoFigaro,
+      link: 'https://www.barbeariafigaromarcal.com/',
     },
     {
-        title: 'Studio de Beleza',
-        description: 'Site institucional com endereço e informações de contato.',
-        image: miaBeautyStudio,
-        link: 'https://miabeautystudiodebeleza.com/',
+      title: 'Studio de Beleza',
+      description: 'Site institucional com endereço e informações de contato.',
+      image: miaBeautyStudio,
+      link: 'https://miabeautystudiodebeleza.com/',
+    },
+    {
+      title: 'Extreme Academia',
+      description: 'Site institucional e Aplicativo de treinos com Gifs de exercícios.',
+      image: extremeacademia,
+      link: 'https://extremeacademia.com/',
+    },
+    {
+      title: 'Catálago Virtual',
+      description: 'Catálago virtual e Painel para administrar produtos',
+      image: catalagoVirtual,
+      link: 'https://jmcatalago-hv49.vercel.app/',
     },
 ];
 
@@ -29,9 +44,9 @@ export default function ProjectsSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="text-4xl md:text-6xl font-bold uppercase mb-12 flex items-center gap-3"
+        className="text-2xl md:text-6xl font-bold uppercase mb-12 flex items-center gap-3"
       >
-        <span className="text-[#7f34b4]">■</span> Projetos
+        <span className="text-[#7f34b4]">■</span> Projetos realizados
       </motion.h2>
 
       {/* Grid de projetos */}
@@ -56,9 +71,19 @@ export default function ProjectsSection() {
                 className="object-cover group-hover:scale-105 transition-transform"
               />
             </div>
-            <div className="p-4">
-              <h3 className="text-lg md:text-xl font-semibold mb-2 text-black">{projeto.title}</h3>
-              <p className="text-black">{projeto.description}</p>
+            <div className="p-4 flex justify-between items-start">
+              <div>
+                <h3 className="text-lg md:text-xl font-semibold mb-1 text-black">
+                  {projeto.title}
+                </h3>
+                <p className="text-black">{projeto.description}</p>
+              </div>
+
+              <button
+                className="text-black hover:text-[#7f34b4] p-1"
+              >
+                <ExternalLink size={22} />
+              </button>
             </div>
           </motion.a>
         ))}
